@@ -1,7 +1,7 @@
 /*
  * Invertory.cpp
  *
- *  Created on: 18 окт. 2013 г.
+ *  Created on: 18 Г®ГЄГІ. 2013 ГЈ.
  *      Author: user
  */
 
@@ -103,10 +103,21 @@ void Inventory::remove(Item * item)
 
 Item* Inventory::removeAt(int index)
 {
-	deque<Item*>::iterator it = items.begin() + index;
-	Item * item = *it;	//remember item beforehand
-	items.erase(it);	//remove item from list
-	return item;		//return item
+	deque buffer; //temporary storage space
+	while(index > 1) //move items out of the way
+	{
+		index--;
+		buffer.push_front(items.front());//move items to storage
+		items.pop_front(); //remove items from inventory
+	}
+	Item * item = items.front(); // get item at iterator
+	items.pop_front(); // erase item
+	while(buffer.size > 0) //put items back
+	{
+		items.push_front(buffer.front()); //move items from storage
+		buffer.pop_front(); //remove items from storage
+	}
+	return item; //return item
 }
 
 int Inventory::count(Item * item)
