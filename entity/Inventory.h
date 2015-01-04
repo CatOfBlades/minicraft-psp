@@ -2,6 +2,7 @@
 #define INVENTORY_H_
 
 #include <deque>
+#include <vector>
 
 class Item;
 class Resource;
