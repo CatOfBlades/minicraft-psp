@@ -106,7 +106,7 @@ void TreeTile::hurt(Level * level, int x, int y, int dmg)
 		for (int i = 0; i < count; i++) {
 			level->add(new ItemEntity(new ResourceItem(Resource::wood), x * 16 + random->nextInt(10) + 3, y * 16 + random->nextInt(10) + 3));
 		}
-		count = random->nextInt(random->nextInt(4) + 1);
+		count = random->nextInt(random->nextInt(5) + 1);
 		for (int i = 0; i < count; i++)
 		{
 			level->add(new ItemEntity(new ResourceItem(Resource::acorn), x * 16 + random->nextInt(10) + 3, y * 16 + random->nextInt(10) + 3));
