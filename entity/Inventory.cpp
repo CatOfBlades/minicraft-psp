@@ -103,8 +103,8 @@ void Inventory::remove(Item * item)
 
 Item* Inventory::removeAt(int index)
 {
-	deque buffer; //temporary storage space
-	while(index > 1) //move items out of the way
+	deque<item*> buffer; //temporary storage space
+	while(index > 0) //move items out of the way
 	{
 		index--;
 		buffer.push_front(items.front());//move items to storage
